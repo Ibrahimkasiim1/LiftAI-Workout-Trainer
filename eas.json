@@ -1,0 +1,60 @@
+{
+  "cli": {
+    "version": ">= 5.2.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "simulator": true,
+        "image": "macos-sequoia-15.6-xcode-26.2",
+        "env": {
+          "EXPO_NO_CAPABILITY_SYNC": "1"
+        }
+      },
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleDebug"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "ios": {
+        "simulator": false,
+        "image": "macos-sequoia-15.6-xcode-26.2",
+        "env": {
+          "EXPO_NO_CAPABILITY_SYNC": "1"
+        }
+      },
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "ios": {
+        "simulator": false,
+        "image": "macos-sequoia-15.6-xcode-26.2",
+        "env": {
+          "EXPO_NO_CAPABILITY_SYNC": "1"
+        },
+        "buildConfiguration": "Release"
+      },
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "autoIncrement": true
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleTeamId": "YOUR_APPLE_TEAM_ID"
+      },
+      "android": {
+        "serviceAccountKeyPath": "./google-play-service-account.json",
+        "track": "internal"
+      }
+    }
+  }
+}
